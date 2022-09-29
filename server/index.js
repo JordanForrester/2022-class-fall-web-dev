@@ -1,18 +1,25 @@
-const http = require('http');
+const express = require('express')
+const app = express()
 
 const hostname = '127.0.0.1';
 const port = 3000;
 
-const server = http.createServer((req, res) => {//This code makes it so the server sends a response to any machine that sends a req
+app.get('/', (req, res) =>{
   res.statusCode = 200;
   res.setHeader('Content-Type', 'text/plain');
   res.end('Hello World');
-});
 
-server.listen(port, hostname, () => {// Callback function.
-  console.log(`Server running at http://${hostname}:${port}/`);//Dynamic String
-  
-});
+})
+
+app.listen(port, hostname,  () => {
+  console.log(`Example app listening on port ${port}`)
+})
+
+
+
+
+
+
 
 
 
